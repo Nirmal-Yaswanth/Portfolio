@@ -1,740 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirmal Yaswanth Kandula | Software Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #1abc9c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #7f8c8d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            line-height: 1.6;
-            color: var(--text);
-            background-color: #f9f9f9;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--accent);
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--primary);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .title {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent);
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: var(--secondary);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Sections */
-        section {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-        
-        /* About */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-text p {
-            margin-bottom: 1rem;
-        }
-        
-        .skills {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .skill-category {
-            margin-bottom: 1.5rem;
-        }
-        
-        .skill-category h3 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .skill-tag {
-            background-color: var(--light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-        
-        /* Education */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 50px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: var(--accent);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -40px;
-            top: 30px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            border: 3px solid white;
-        }
-        
-        .timeline-date {
-            position: absolute;
-            left: -150px;
-            top: 30px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            width: 120px;
-            text-align: right;
-        }
-        
-        .timeline-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .timeline-content h4 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-        
-        .timeline-content p {
-            color: var(--text-light);
-        }
-        
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .project-img {
-            height: 200px;
-            background-color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .project-content p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .tech-tag {
-            background-color: var(--light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--text);
-        }
-        
-        /* Experience */
-        .experience-item {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-        
-        .experience-header h3 {
-            color: var(--primary);
-        }
-        
-        .experience-header .date {
-            color: var(--text-light);
-            font-style: italic;
-        }
-        
-        .experience-content ul {
-            margin-left: 1.5rem;
-            color: var(--text-light);
-        }
-        
-        .experience-content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Certifications */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .certification-card {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .certification-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .certification-card p {
-            color: var(--text-light);
-        }
-        
-        /* Achievements */
-        .achievements-list {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .achievement-item {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-        }
-        
-        .achievement-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .achievement-item p {
-            color: var(--text-light);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .footer-content p {
-            margin-bottom: 1rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                margin-top: 1rem;
-            }
-            
-            .nav-links li {
-                margin-left: 1rem;
-                margin-right: 1rem;
-            }
-            
-            .timeline {
-                padding-left: 30px;
-            }
-            
-            .timeline-date {
-                position: static;
-                width: auto;
-                text-align: left;
-                margin-bottom: 0.5rem;
-                color: var(--text-light);
-            }
-            
-            .timeline-item::before {
-                left: -30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nirmal Yaswanth Kandula | Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg: #141414;
+  --surface: #1f1f1f;
+  --ink: #f5f5f5;
+  --muted: #a3a3a3;
+  --line: #2e2e2e;
+  --red: #e50914;
+  --green: #46d369;
+  --font-head: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --font-body: 'DM Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --gutter: 4%;
+  color-scheme: dark;
+}
+.tone-0 { background: linear-gradient(135deg, #5a0d14, #1a1a1a); }
+.tone-1 { background: linear-gradient(135deg, #0d3b5a, #1a1a1a); }
+.tone-2 { background: linear-gradient(135deg, #3a1a5a, #1a1a1a); }
+.tone-3 { background: linear-gradient(135deg, #0d5a45, #1a1a1a); }
+.tone-4 { background: linear-gradient(135deg, #5a4a0d, #1a1a1a); }
+
+/* 2. Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 400 1rem/1.6 var(--font-body);
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* 3. Navigation */
+.top {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; align-items: center; gap: 2rem;
+  padding: calc(env(safe-area-inset-top, 0px) + .9rem) var(--gutter) .9rem;
+  background: linear-gradient(#000e, #0000);
+  backdrop-filter: blur(6px);
+}
+.logo { font: 400 2rem/1 var(--font-head); color: var(--red); letter-spacing: .02em; white-space: nowrap; }
+.links { display: flex; gap: 1.2rem; font-size: .9rem; overflow-x: auto; scrollbar-width: none; }
+.links::-webkit-scrollbar { display: none; }
+.links a { color: #d0d0d0; white-space: nowrap; transition: color .2s; }
+.links a:hover { color: #fff; }
+.avatar {
+  margin-left: auto; width: 2rem; height: 2rem; border-radius: .3rem;
+  background: linear-gradient(135deg, #e50914, #7a0510);
+  display: grid; place-items: center; font: 400 1.1rem var(--font-head);
+}
+
+/* 4. Hero */
+.hero {
+  position: relative; min-height: 88vh; display: flex; align-items: flex-end;
+  padding: 9rem var(--gutter) 5rem;
+  background:
+    radial-gradient(60% 70% at 78% 30%, #e5091433, #0000 70%),
+    radial-gradient(40% 50% at 95% 80%, #3a0b0f, #0000),
+    linear-gradient(#0a0a0a, var(--bg));
+}
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10rem; background: linear-gradient(#0000, var(--bg)); }
+.hero-inner { position: relative; z-index: 2; max-width: 40rem; }
+.badge { font: 400 1.1rem var(--font-head); letter-spacing: .2em; color: var(--red); }
+h1 { margin: .3rem 0 1rem; font: 400 clamp(3.2rem, 9vw, 6.5rem)/.95 var(--font-head); letter-spacing: .01em; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-bottom: 1rem; font-size: .95rem; color: var(--muted); }
+.meta b { color: var(--green); }
+.meta .box { border: 1px solid #666; padding: 0 .4rem; border-radius: 3px; font-size: .8rem; }
+.hero p { max-width: 34rem; margin-bottom: 1.5rem; font-size: 1.1rem; text-shadow: 0 2px 8px #000; }
+.btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+.btn { display: inline-block; padding: .7rem 1.6rem; border-radius: .3rem; font-weight: 700; font-size: 1.05rem; }
+.btn.play { background: #fff; color: #000; }
+.btn.play:hover { background: #ddd; }
+.btn.info { background: #6d6d6eb3; color: #fff; }
+.btn.info:hover { background: #6d6d6e66; }
+
+/* 5. Rows & cards */
+main { position: relative; z-index: 3; margin-top: -3rem; padding-bottom: 3rem; }
+.row { margin-bottom: 2.6rem; }
+.row h2 { margin: 0 var(--gutter) .7rem; font: 700 1.3rem/1.2 var(--font-body); }
+.track { display: flex; gap: .6rem; overflow-x: auto; padding: .5rem var(--gutter) 1.5rem; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: #444 transparent; }
+.card {
+  position: relative; flex: 0 0 auto; overflow: hidden;
+  width: min(78vw, 19rem); aspect-ratio: 16 / 10;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1rem; border-radius: .4rem; scroll-snap-align: start;
+  transition: transform .25s, box-shadow .25s;
+}
+.card.tall { width: min(70vw, 15rem); aspect-ratio: 3 / 4; }
+.card:hover { transform: scale(1.07); box-shadow: 0 10px 30px #000a; z-index: 4; }
+.card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(#0000 30%, #000d); }
+.card > * { position: relative; }
+.card-kind { font: 400 .95rem var(--font-head); letter-spacing: .15em; color: var(--red); }
+.card-title { font: 400 1.7rem/1.05 var(--font-head); letter-spacing: .01em; }
+.card-sub { margin-top: .2rem; font-size: .82rem; color: #cfcfcf; }
+.card-icon { position: absolute; top: .8rem; right: 1rem; opacity: .2; font: 400 3.2rem/1 var(--font-head); }
+
+/* 6. Skill tiles */
+.tile { flex: 0 0 auto; width: min(72vw, 14rem); padding: 1.2rem; background: var(--surface); border-top: 3px solid var(--red); border-radius: .4rem; }
+.tile h3 { margin-bottom: .6rem; font: 400 1.5rem var(--font-head); letter-spacing: .02em; }
+.tile span { display: inline-block; margin: .15rem .2rem .15rem 0; padding: .1rem .6rem; border-radius: 99px; background: var(--line); font-size: .82rem; }
+
+/* 7. Pop-ups: a card links to #id, and :target shows that pop-up */
+.modal {
+  position: fixed; inset: 0; z-index: 50; padding: 1rem;
+  display: none; align-items: center; justify-content: center;
+  background: #000b; overflow-y: auto;
+}
+.modal:target { display: flex; }
+.modal-bg { position: absolute; inset: 0; }              /* click outside to close */
+.sheet {
+  position: relative; width: min(100%, 44rem); max-height: 92vh; overflow-y: auto;
+  background: var(--surface); border-radius: .6rem; box-shadow: 0 20px 60px #000;
+  animation: pop .22s ease-out;
+}
+@keyframes pop { from { transform: scale(.96); opacity: 0; } }
+.banner { position: relative; height: 10rem; display: flex; align-items: flex-end; padding: 1.4rem; }
+.banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(#0000 40%, var(--surface)); }
+.banner h3 { position: relative; z-index: 1; font: 400 2.6rem/1 var(--font-head); }
+.close {
+  position: absolute; top: .8rem; right: .8rem; z-index: 2;
+  width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--bg); display: grid; place-items: center;
+}
+.body { padding: 1rem 1.4rem 1.6rem; }
+.body .meta { margin-bottom: .8rem; }
+.body p { margin-bottom: .8rem; color: #d4d4d4; }
+.body ul { margin: .6rem 0 1rem; padding-left: 1.2rem; color: #d4d4d4; }
+.body li { margin-bottom: .4rem; }
+.chips span { display: inline-block; margin: 0 .35rem .35rem 0; padding: .15rem .7rem; border-radius: 99px; background: var(--line); font-size: .82rem; color: var(--muted); }
+
+/* 8. Footer */
+footer { padding: 3rem var(--gutter) 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .92rem; }
+footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: var(--ink); }
+.links-row { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1rem 0 1.5rem; }
+.links-row a { padding: .55rem 1.1rem; border: 1px solid #555; border-radius: .3rem; color: var(--ink); }
+.links-row a:hover { background: #fff; color: #000; }
+
+/* 9. Responsive & motion */
+@media (max-width: 48rem) {
+  .top { gap: 1rem; }
+  .logo { font-size: 1.6rem; }
+  .avatar { display: none; }
+  .hero { min-height: 80vh; padding-top: 7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <img src="images/nirmal.jpg" alt="Nirmal Yaswanth Kandula" class="profile-img">
-            <h1>NIRMAL YASWANTH KANDULA</h1>
-            <p class="title">Aspiring Software Developer</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>nirmalyaswanth37@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+91 9441378467</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Ongole, Andhra Pradesh</span>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/nirmal-yaswanth-kandula" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Nirmal-Yaswanth" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">Nirmal Yaswanth Kandula</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- ============ Navigation ============ -->
+<header class="top">
+  <a href="#home" class="logo">NIRMAL</a>
+  <nav class="links" aria-label="Sections">
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="avatar" aria-hidden="true">N</div>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Final-year B.Tech Computer Science student with strong skills in Java, Spring Boot, and ReactJS. Seeking an entry-level software developer position to apply academic knowledge and build real-world solutions.</p>
-                    <p>Passionate about creating efficient, scalable software solutions with clean code architecture. Experienced in full-stack development with a focus on backend systems and RESTful API design.</p>
-                </div>
-                <div class="skills">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">SQL</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Web Technologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">ReactJS</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Backend & Frameworks</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Spring Boot</span>
-                            <span class="skill-tag">Eclipse</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Tools & Platforms</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">Postman</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ============ Hero ============ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="badge">PORTFOLIO</div>
+    <h1>Nirmal Yaswanth Kandula</h1>
+    <div class="meta">
+      <b>Open to work</b>
+      <span>2026</span>
+      <span class="box">B.Tech CSE</span>
+      <span>Java · Spring Boot · React</span>
+    </div>
+    <p>Final-year computer science student who builds clean backend systems and RESTful APIs, and turns them into full-stack products people can use.</p>
+    <div class="btns">
+      <a class="btn play" href="#projects">▶ View projects</a>
+      <a class="btn info" href="#m-about">ⓘ More info</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-date">Aug 2022 – May 2026</span>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology (B.Tech) in Computer Science and Engineering</h3>
-                        <h4>PACE Institute of Technology and Sciences, Valluru, Andhra Pradesh</h4>
-                        <p>CGPA: 7.98 / 10</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">June 2020 – May 2022</span>
-                    <div class="timeline-content">
-                        <h3>Intermediate</h3>
-                        <h4>NARAYANA JUNIOR COLLEGE</h4>
-                        <p>Percentage: 69.8</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">June 2019 – May 2020</span>
-                    <div class="timeline-content">
-                        <h3>High School</h3>
-                        <h4>BHASHYAM HIGH SCHOOL</h4>
-                        <p>Percentage: 99.1</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<main>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-hotel" style="font-size: 3rem; color: var(--accent);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Hotel Management System – Backend Project</h3>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java 17</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">Spring Data JPA</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Maven</span>
-                        </div>
-                        <p>Developed a backend-based hotel management system to manage reservations, customers, and billing operations.</p>
-                        <ul style="margin-left: 1.5rem; color: var(--text-light);">
-                            <li>Implemented database connectivity using JDBC and performed CRUD operations on MySQL</li>
-                            <li>Designed Java classes for booking, room availability, and payment handling</li>
-                            <li>Ensured modular and maintainable code structure using object-oriented programming principles</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-building" style="font-size: 3rem; color: var(--accent);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Smart APT – Apartment Management System (Full Stack)</h3>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java 17</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">React.js</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                            <span class="tech-tag">Google OAuth</span>
-                        </div>
-                        <p>Developed a web-based apartment management system for handling tenant details, maintenance requests, and apartment listings.</p>
-                        <ul style="margin-left: 1.5rem; color: var(--text-light);">
-                            <li>Led backend development for a comprehensive rental management system</li>
-                            <li>Designed and implemented robust RESTful APIs for user authentication, property booking, and contact management</li>
-                            <li>Integrated MySQL database using Spring Data JPA</li>
-                            <li>Designed backend data validation and exception handling mechanisms</li>
-                            <li>Successfully implemented all core backend CRUD operations across 3+ key entities</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============ Projects ============ -->
+  <section class="row" id="projects">
+    <h2>Projects</h2>
+    <div class="track">
+      <a class="card tone-0" href="#m-hotel">
+        <span class="card-icon">H</span><span class="card-kind">BACKEND</span>
+        <span class="card-title">Hotel Management System</span>
+        <span class="card-sub">Java 17 · Spring Boot · MySQL</span>
+      </a>
+      <a class="card tone-1" href="#m-apt">
+        <span class="card-icon">S</span><span class="card-kind">FULL STACK</span>
+        <span class="card-title">Smart APT</span>
+        <span class="card-sub">Apartment management system</span>
+      </a>
+    </div>
+  </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Experience</h2>
-            </div>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Java Full Stack Development Intern</h3>
-                    <span class="date">May 2024 – June 2024</span>
-                </div>
-                <div class="experience-content">
-                    <h4>42Learn</h4>
-                    <ul>
-                        <li>Learned and applied core Java concepts including OOP, exception handling, and collections</li>
-                        <li>Gained hands-on experience in JDBC for database connectivity and CRUD operations using MySQL</li>
-                        <li>Developed backend modules for a web-based employment management system using Servlets and JSP</li>
-                        <li>Understood database design principles and implemented real-time use cases using SQL and DAO pattern</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============ Highlights ============ -->
+  <section class="row" id="highlights">
+    <h2>Highlights</h2>
+    <div class="track">
+      <a class="card tone-2" href="#m-intern">
+        <span class="card-icon">42</span><span class="card-kind">EXPERIENCE</span>
+        <span class="card-title">Java Full Stack Intern</span>
+        <span class="card-sub">42Learn · May – Jun 2024</span>
+      </a>
+      <a class="card tone-4" href="#m-win">
+        <span class="card-icon">1</span><span class="card-kind">ACHIEVEMENT</span>
+        <span class="card-title">Hackathon Winner</span>
+        <span class="card-sub">42Learn L1 Hackathon</span>
+      </a>
+    </div>
+  </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Certifications</h2>
-            </div>
-            <div class="certifications-grid">
-                <div class="certification-card">
-                    <h3>Android Developer Virtual Internship</h3>
-                    <p>Internshala</p>
-                </div>
-                <div class="certification-card">
-                    <h3>Data Structures and Algorithms</h3>
-                    <p>Coding Ninjas</p>
-                </div>
-                <div class="certification-card">
-                    <h3>AIML Virtual Internship</h3>
-                    <p>AWS Academy</p>
-                </div>
-                <div class="certification-card">
-                    <h3>Virtual Internship on Data Engineering</h3>
-                    <p>SmartInternz</p>
-                </div>
-                <div class="certification-card">
-                    <h3>Java Full Stack Development Internship</h3>
-                    <p>42Learn</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============ Skills ============ -->
+  <section class="row" id="skills">
+    <h2>Skills</h2>
+    <div class="track">
+      <div class="tile"><h3>Languages</h3><span>Python</span><span>Java</span><span>SQL</span></div>
+      <div class="tile"><h3>Web</h3><span>HTML</span><span>CSS</span><span>JavaScript</span><span>ReactJS</span></div>
+      <div class="tile"><h3>Backend</h3><span>Spring Boot</span><span>Eclipse</span></div>
+      <div class="tile"><h3>Tools</h3><span>Git</span><span>GitHub</span><span>VS Code</span><span>Postman</span></div>
+    </div>
+  </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Achievements</h2>
-            </div>
-            <div class="achievements-list">
-                <div class="achievement-item">
-                    <h3>Hackathon Winner</h3>
-                    <p>Winner of the 42 Learn L1-Hackathon, showcasing skills in coding and team collaboration.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============ Certifications ============ -->
+  <section class="row" id="certifications">
+    <h2>Certifications</h2>
+    <div class="track">
+      <a class="card tall tone-0" href="#m-cert1"><span class="card-icon">I</span><span class="card-kind">CERTIFIED</span><span class="card-title">Android Developer</span><span class="card-sub">Internshala</span></a>
+      <a class="card tall tone-1" href="#m-cert2"><span class="card-icon">C</span><span class="card-kind">CERTIFIED</span><span class="card-title">Data Structures &amp; Algorithms</span><span class="card-sub">Coding Ninjas</span></a>
+      <a class="card tall tone-2" href="#m-cert3"><span class="card-icon">A</span><span class="card-kind">CERTIFIED</span><span class="card-title">AIML</span><span class="card-sub">AWS Academy</span></a>
+      <a class="card tall tone-3" href="#m-cert4"><span class="card-icon">S</span><span class="card-kind">CERTIFIED</span><span class="card-title">Data Engineering</span><span class="card-sub">SmartInternz</span></a>
+      <a class="card tall tone-4" href="#m-cert5"><span class="card-icon">4</span><span class="card-kind">CERTIFIED</span><span class="card-title">Java Full Stack</span><span class="card-sub">42Learn</span></a>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2024 Nirmal Yaswanth Kandula. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/nirmal-yaswanth-kandula" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Nirmal-Yaswanth" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:nirmalyaswanth37@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
+  <!-- ============ Education ============ -->
+  <section class="row" id="education">
+    <h2>Education</h2>
+    <div class="track">
+      <a class="card tone-3" href="#m-btech"><span class="card-icon">B</span><span class="card-kind">2022 – 2026</span><span class="card-title">B.Tech in Computer Science</span><span class="card-sub">PACE Institute · CGPA 7.98</span></a>
+      <a class="card tone-1" href="#m-inter"><span class="card-icon">I</span><span class="card-kind">2020 – 2022</span><span class="card-title">Intermediate</span><span class="card-sub">Narayana Junior College · 69.8%</span></a>
+      <a class="card tone-2" href="#m-school"><span class="card-icon">H</span><span class="card-kind">2019 – 2020</span><span class="card-title">High School</span><span class="card-sub">Bhashyam High School · 99.1%</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Contact ============ -->
+<footer id="contact">
+  <h2>Let’s work together</h2>
+  <div>Ongole, Andhra Pradesh · +91 9441378467</div>
+  <div class="links-row">
+    <a href="mailto:nirmalyaswanth37@gmail.com">Email me</a>
+    <a href="https://linkedin.com/in/nirmal-yaswanth-kandula" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Nirmal-Yaswanth" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div>© 2026 Nirmal Yaswanth Kandula</div>
+</footer>
+
+
+<!-- ==========================================================================
+     Pop-ups. Each card above links to one of these ids (e.g. href="#m-hotel").
+     The close button and the dark background both link back to a section.
+     ========================================================================== -->
+
+<div class="modal" id="m-about">
+  <a class="modal-bg" href="#home" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="About me">
+    <div class="banner tone-0"><a class="close" href="#home" aria-label="Close">✕</a><h3>About me</h3></div>
+    <div class="body">
+      <div class="meta"><b>Final-year B.Tech</b><span>Ongole, Andhra Pradesh</span></div>
+      <p>Final-year B.Tech Computer Science student with strong skills in Java, Spring Boot, and ReactJS, seeking an entry-level software developer role.</p>
+      <p>Focused on efficient, scalable software with clean code architecture, full-stack development, backend systems, and RESTful API design.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-hotel">
+  <a class="modal-bg" href="#projects" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Hotel Management System">
+    <div class="banner tone-0"><a class="close" href="#projects" aria-label="Close">✕</a><h3>Hotel Management System</h3></div>
+    <div class="body">
+      <div class="meta"><b>Backend project</b></div>
+      <p>A backend system to manage reservations, customers, and billing.</p>
+      <ul>
+        <li>Database connectivity with JDBC and CRUD operations on MySQL</li>
+        <li>Java classes for booking, room availability, and payment handling</li>
+        <li>Modular, maintainable structure using object-oriented principles</li>
+      </ul>
+      <div class="chips"><span>Java 17</span><span>Spring Boot</span><span>Spring Data JPA</span><span>MySQL</span><span>Maven</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-apt">
+  <a class="modal-bg" href="#projects" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Smart APT">
+    <div class="banner tone-1"><a class="close" href="#projects" aria-label="Close">✕</a><h3>Smart APT</h3></div>
+    <div class="body">
+      <div class="meta"><b>Full-stack project</b><span>Backend lead</span></div>
+      <p>A web-based apartment management system for tenant details, maintenance requests, and apartment listings.</p>
+      <ul>
+        <li>Led backend development of the rental management system</li>
+        <li>Built RESTful APIs for authentication, property booking, and contact management</li>
+        <li>MySQL integration with Spring Data JPA</li>
+        <li>Data validation and exception handling</li>
+        <li>Core CRUD operations across 3+ key entities</li>
+      </ul>
+      <div class="chips"><span>Java 17</span><span>Spring Boot</span><span>React.js</span><span>Tailwind CSS</span><span>Google OAuth</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-intern">
+  <a class="modal-bg" href="#highlights" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Java Full Stack Intern">
+    <div class="banner tone-2"><a class="close" href="#highlights" aria-label="Close">✕</a><h3>Java Full Stack Intern</h3></div>
+    <div class="body">
+      <div class="meta"><b>42Learn</b><span>May 2024 – June 2024</span></div>
+      <ul>
+        <li>Applied core Java: OOP, exception handling, and collections</li>
+        <li>Used JDBC for database connectivity and CRUD operations with MySQL</li>
+        <li>Built backend modules for an employment management system with Servlets and JSP</li>
+        <li>Implemented real-time use cases with SQL and the DAO pattern</li>
+      </ul>
+      <div class="chips"><span>Java</span><span>JDBC</span><span>Servlets</span><span>JSP</span><span>MySQL</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-win">
+  <a class="modal-bg" href="#highlights" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Hackathon Winner">
+    <div class="banner tone-4"><a class="close" href="#highlights" aria-label="Close">✕</a><h3>Hackathon Winner</h3></div>
+    <div class="body">
+      <div class="meta"><b>Winner</b><span>42Learn L1 Hackathon</span></div>
+      <p>Won the 42Learn L1 Hackathon, showing skills in coding and team collaboration.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-cert1">
+  <a class="modal-bg" href="#certifications" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Android Developer">
+    <div class="banner tone-0"><a class="close" href="#certifications" aria-label="Close">✕</a><h3>Android Developer</h3></div>
+    <div class="body"><div class="meta"><b>Internshala</b><span>Virtual internship</span></div><p>Android Developer virtual internship from Internshala.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-cert2">
+  <a class="modal-bg" href="#certifications" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Data Structures and Algorithms">
+    <div class="banner tone-1"><a class="close" href="#certifications" aria-label="Close">✕</a><h3>Data Structures &amp; Algorithms</h3></div>
+    <div class="body"><div class="meta"><b>Coding Ninjas</b><span>Course</span></div><p>Data Structures and Algorithms course from Coding Ninjas.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-cert3">
+  <a class="modal-bg" href="#certifications" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="AIML">
+    <div class="banner tone-2"><a class="close" href="#certifications" aria-label="Close">✕</a><h3>AIML</h3></div>
+    <div class="body"><div class="meta"><b>AWS Academy</b><span>Virtual internship</span></div><p>AIML virtual internship from AWS Academy.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-cert4">
+  <a class="modal-bg" href="#certifications" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Data Engineering">
+    <div class="banner tone-3"><a class="close" href="#certifications" aria-label="Close">✕</a><h3>Data Engineering</h3></div>
+    <div class="body"><div class="meta"><b>SmartInternz</b><span>Virtual internship</span></div><p>Virtual internship on Data Engineering from SmartInternz.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-cert5">
+  <a class="modal-bg" href="#certifications" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Java Full Stack">
+    <div class="banner tone-4"><a class="close" href="#certifications" aria-label="Close">✕</a><h3>Java Full Stack</h3></div>
+    <div class="body"><div class="meta"><b>42Learn</b><span>Internship</span></div><p>Java Full Stack Development internship at 42Learn.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-btech">
+  <a class="modal-bg" href="#education" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="B.Tech in Computer Science">
+    <div class="banner tone-3"><a class="close" href="#education" aria-label="Close">✕</a><h3>B.Tech in Computer Science</h3></div>
+    <div class="body"><div class="meta"><b>Aug 2022 – May 2026</b></div><p>PACE Institute of Technology and Sciences, Valluru, Andhra Pradesh. CGPA: 7.98 / 10.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-inter">
+  <a class="modal-bg" href="#education" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Intermediate">
+    <div class="banner tone-1"><a class="close" href="#education" aria-label="Close">✕</a><h3>Intermediate</h3></div>
+    <div class="body"><div class="meta"><b>June 2020 – May 2022</b></div><p>Narayana Junior College. Percentage: 69.8.</p></div>
+  </div>
+</div>
+
+<div class="modal" id="m-school">
+  <a class="modal-bg" href="#education" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="High School">
+    <div class="banner tone-2"><a class="close" href="#education" aria-label="Close">✕</a><h3>High School</h3></div>
+    <div class="body"><div class="meta"><b>June 2019 – May 2020</b></div><p>Bhashyam High School. Percentage: 99.1.</p></div>
+  </div>
+</div>
+
 </body>
 </html>
