@@ -8,7 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+/* ==========================================================================
+   Pure HTML + CSS portfolio (no JavaScript)
+   1. Tokens   2. Base   3. Navigation   4. Hero   5. Rows & cards
+   6. Skill tiles   7. Pop-ups (CSS :target)   8. Footer   9. Responsive
+   ========================================================================== */
 
+/* 1. Tokens */
 :root {
   --bg: #141414;
   --surface: #1f1f1f;
@@ -68,10 +74,21 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(40% 50% at 95% 80%, #3a0b0f, #0000),
     linear-gradient(#0a0a0a, var(--bg));
 }
-.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10rem; background: linear-gradient(#0000, var(--bg)); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10rem; background: linear-gradient(#0000, var(--bg)); z-index: 1; }
 .hero-inner { position: relative; z-index: 2; max-width: 40rem; }
 .badge { font: 400 1.1rem var(--font-head); letter-spacing: .2em; color: var(--red); }
 h1 { margin: .3rem 0 1rem; font: 400 clamp(3.2rem, 9vw, 6.5rem)/.95 var(--font-head); letter-spacing: .01em; }
+
+/* Photo on the right side of the hero, faded into the background.
+   Put your picture at images/nirmal.jpg. If it is missing, nothing shows. */
+.hero-photo {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 55%; z-index: 0;
+  background: url("images/nirmal.jpg") center top / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%), linear-gradient(to top, transparent 0%, #000 35%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 45%), linear-gradient(to top, transparent 0%, #000 35%);
+  mask-composite: intersect;
+}
 .meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-bottom: 1rem; font-size: .95rem; color: var(--muted); }
 .meta b { color: var(--green); }
 .meta .box { border: 1px solid #666; padding: 0 .4rem; border-radius: 3px; font-size: .8rem; }
@@ -137,6 +154,8 @@ main { position: relative; z-index: 3; margin-top: -3rem; padding-bottom: 3rem; 
 .body ul { margin: .6rem 0 1rem; padding-left: 1.2rem; color: #d4d4d4; }
 .body li { margin-bottom: .4rem; }
 .chips span { display: inline-block; margin: 0 .35rem .35rem 0; padding: .15rem .7rem; border-radius: 99px; background: var(--line); font-size: .82rem; color: var(--muted); }
+.repo { display: inline-block; margin-top: .8rem; padding: .6rem 1.3rem; border-radius: .3rem; background: #fff; color: #000; font-weight: 700; }
+.repo:hover { background: #ddd; }
 
 /* 8. Footer */
 footer { padding: 3rem var(--gutter) 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .92rem; }
@@ -151,6 +170,7 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
   .logo { font-size: 1.6rem; }
   .avatar { display: none; }
   .hero { min-height: 80vh; padding-top: 7rem; }
+  .hero-photo { width: 100%; opacity: .45; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
@@ -177,6 +197,7 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
 
 <!-- ============ Hero ============ -->
 <section class="hero" id="home">
+  <div class="hero-photo" role="img" aria-label="Photo of Nirmal Yaswanth Kandula"></div>
   <div class="hero-inner">
     <div class="badge">PORTFOLIO</div>
     <h1>Nirmal Yaswanth Kandula</h1>
@@ -200,6 +221,11 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
   <section class="row" id="projects">
     <h2>Projects</h2>
     <div class="track">
+      <a class="card tone-3" href="#m-pneu">
+        <span class="card-icon">AI</span><span class="card-kind">AI / ML</span>
+        <span class="card-title">Pneumonia Detection</span>
+        <span class="card-sub">CNN · TensorFlow · ~94% accuracy</span>
+      </a>
       <a class="card tone-0" href="#m-hotel">
         <span class="card-icon">H</span><span class="card-kind">BACKEND</span>
         <span class="card-title">Hotel Management System</span>
@@ -257,7 +283,7 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
   <section class="row" id="education">
     <h2>Education</h2>
     <div class="track">
-      <a class="card tone-3" href="#m-btech"><span class="card-icon">B</span><span class="card-kind">2022 – 2026</span><span class="card-title">B.Tech in Computer Science</span><span class="card-sub">PACE Institute · CGPA 7.98</span></a>
+      <a class="card tone-3" href="#m-btech"><span class="card-icon">B</span><span class="card-kind">2022 – 2026</span><span class="card-title">B.Tech in Computer Science</span><span class="card-sub">PACE Institute · CGPA 8.13</span></a>
       <a class="card tone-1" href="#m-inter"><span class="card-icon">I</span><span class="card-kind">2020 – 2022</span><span class="card-title">Intermediate</span><span class="card-sub">Narayana Junior College · 69.8%</span></a>
       <a class="card tone-2" href="#m-school"><span class="card-icon">H</span><span class="card-kind">2019 – 2020</span><span class="card-title">High School</span><span class="card-sub">Bhashyam High School · 99.1%</span></a>
     </div>
@@ -295,6 +321,25 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
   </div>
 </div>
 
+<div class="modal" id="m-pneu">
+  <a class="modal-bg" href="#projects" aria-label="Close"></a>
+  <div class="sheet" role="dialog" aria-label="Pneumonia Detection System">
+    <div class="banner tone-3"><a class="close" href="#projects" aria-label="Close">✕</a><h3>Pneumonia Detection System</h3></div>
+    <div class="body">
+      <div class="meta"><b>AI / ML project</b><span>Deep learning</span></div>
+      <p>A CNN-based image classifier that detects pneumonia from chest X-ray images.</p>
+      <ul>
+        <li>Built the classifier with TensorFlow and Keras</li>
+        <li>Preprocessed images (resizing, normalization) and applied data augmentation to improve generalization and reduce overfitting</li>
+        <li>Tuned hyperparameters and reached about 94% accuracy on unseen test data</li>
+        <li>Evaluated with accuracy, a confusion matrix, and validation curves</li>
+      </ul>
+      <div class="chips"><span>Python</span><span>TensorFlow</span><span>Keras</span><span>CNN</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Git</span></div>
+      <a class="repo" href="https://github.com/Nirmal-Yaswanth/Pneumonia-Dectection_System" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</div>
+
 <div class="modal" id="m-hotel">
   <a class="modal-bg" href="#projects" aria-label="Close"></a>
   <div class="sheet" role="dialog" aria-label="Hotel Management System">
@@ -308,6 +353,7 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
         <li>Modular, maintainable structure using object-oriented principles</li>
       </ul>
       <div class="chips"><span>Java 17</span><span>Spring Boot</span><span>Spring Data JPA</span><span>MySQL</span><span>Maven</span></div>
+      <a class="repo" href="https://github.com/Nirmal-Yaswanth/HotelManagementSystem" target="_blank" rel="noopener">View on GitHub</a>
     </div>
   </div>
 </div>
@@ -403,7 +449,7 @@ footer h2 { margin-bottom: .6rem; font: 400 2.4rem/1 var(--font-head); color: va
   <a class="modal-bg" href="#education" aria-label="Close"></a>
   <div class="sheet" role="dialog" aria-label="B.Tech in Computer Science">
     <div class="banner tone-3"><a class="close" href="#education" aria-label="Close">✕</a><h3>B.Tech in Computer Science</h3></div>
-    <div class="body"><div class="meta"><b>Aug 2022 – May 2026</b></div><p>PACE Institute of Technology and Sciences, Valluru, Andhra Pradesh. CGPA: 7.98 / 10.</p></div>
+    <div class="body"><div class="meta"><b>Aug 2022 – May 2026</b></div><p>PACE Institute of Technology and Sciences, Valluru, Andhra Pradesh. CGPA: 8.13 / 10.</p></div>
   </div>
 </div>
 
