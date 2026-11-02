@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nirmal Yaswanth Kandula – Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141414;--surface:#1f1f1f;--ink:#f5f5f5;--muted:#a3a3a3;--line:#2e2e2e;--red:#e50914;--green:#46d369;
+--head:'Bebas Neue',Impact,'Arial Narrow',sans-serif;--body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+/* nav */
+.top{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(env(safe-area-inset-top,0px) + .9rem) 4% .9rem;display:flex;align-items:center;gap:2rem;background:linear-gradient(#000c,#0000);transition:background .3s}
+.top.solid{background:var(--bg)}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:21}
+.logo{font:400 2rem/1 var(--head);color:var(--red);letter-spacing:.02em;white-space:nowrap}
+.links{display:flex;gap:1.2rem;font-size:.9rem;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{color:#d0d0d0;white-space:nowrap;transition:color .2s}.links a:hover{color:#fff}
+.avatar{margin-left:auto;width:2rem;height:2rem;border-radius:.3rem;background:linear-gradient(135deg,#e50914,#7a0510);display:grid;place-items:center;font:400 1.1rem var(--head)}
+/* hero */
+.hero{min-height:88vh;padding:9rem 4% 5rem;display:flex;align-items:flex-end;position:relative;
+background:radial-gradient(60% 70% at 78% 30%,#e5091433,#0000 70%),radial-gradient(40% 50% at 95% 80%,#3a0b0f,#0000),linear-gradient(#0a0a0a,var(--bg))}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10rem;background:linear-gradient(#0000,var(--bg))}
+.hero-in{position:relative;z-index:2;max-width:40rem}
+.badge{font:400 1.1rem var(--head);letter-spacing:.2em;color:var(--red)}
+h1{font:400 clamp(3.2rem,9vw,6.5rem)/.95 var(--head);margin:.3rem 0 1rem;letter-spacing:.01em}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;font-size:.95rem;color:var(--muted);margin-bottom:1rem;align-items:center}
+.meta b{color:var(--green)}.meta span.box{border:1px solid #666;padding:0 .4rem;border-radius:3px;font-size:.8rem}
+.hero p{font-size:1.1rem;max-width:34rem;margin:0 0 1.5rem;text-shadow:0 2px 8px #000}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.6rem;border-radius:.3rem;border:0;font-weight:700;font-size:1.05rem}
+.btn.play{background:#fff;color:#000}.btn.play:hover{background:#ddd}
+.btn.info{background:#6d6d6eb3;color:#fff}.btn.info:hover{background:#6d6d6e66}
+/* rows */
+main{position:relative;z-index:3;margin-top:-3rem;padding-bottom:3rem}
+.row{margin:0 0 2.6rem}
+.row h2{font:700 1.3rem/1.2 var(--body);margin:0 4% .7rem}
+.track-wrap{position:relative}
+.track{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x proximity;padding:.5rem 4% 1.5rem;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.arrow{position:absolute;top:.5rem;bottom:1.5rem;width:4%;min-width:2.4rem;border:0;background:#141414b3;color:#fff;font-size:1.8rem;z-index:5;opacity:0;transition:opacity .2s}
+.track-wrap:hover .arrow{opacity:1}.arrow.l{left:0}.arrow.r{right:0}
+@media (hover:none){.arrow{display:none}}
+.card{flex:0 0 auto;width:min(78vw,19rem);aspect-ratio:16/10;border-radius:.4rem;border:0;text-align:left;padding:1rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;scroll-snap-align:start;transition:transform .25s,box-shadow .25s;background:var(--surface)}
+.card.tall{width:min(70vw,15rem);aspect-ratio:3/4}
+.card:hover{transform:scale(1.07);box-shadow:0 10px 30px #000a;z-index:4}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(#0000 30%,#000d)}
+.card>*{position:relative}
+.card .k{font:400 .95rem var(--head);letter-spacing:.15em;color:var(--red)}
+.card .t{font:400 1.7rem/1.05 var(--head);letter-spacing:.01em}
+.card .s{font-size:.82rem;color:#cfcfcf;margin-top:.2rem}
+.card .ico{position:absolute;top:.8rem;right:1rem;font:400 3.2rem/1 var(--head);opacity:.2}
+.g0{background:linear-gradient(135deg,#5a0d14,#1a1a1a)}.g1{background:linear-gradient(135deg,#0d3b5a,#1a1a1a)}
+.g2{background:linear-gradient(135deg,#3a1a5a,#1a1a1a)}.g3{background:linear-gradient(135deg,#0d5a45,#1a1a1a)}
+.g4{background:linear-gradient(135deg,#5a4a0d,#1a1a1a)}
+.tile{flex:0 0 auto;width:min(72vw,14rem);padding:1.2rem;border-radius:.4rem;background:var(--surface);border-top:3px solid var(--red)}
+.tile h3{font:400 1.5rem var(--head);margin:0 0 .6rem;letter-spacing:.02em}
+.tile span{display:inline-block;margin:.15rem .2rem .15rem 0;padding:.1rem .6rem;border-radius:99px;background:#2e2e2e;font-size:.82rem}
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:#000b;display:none;align-items:center;justify-content:center;padding:1rem;overflow-y:auto}
+.modal.open{display:flex}
+.sheet{background:var(--surface);width:min(100%,44rem);border-radius:.6rem;overflow:hidden;box-shadow:0 20px 60px #000;max-height:92vh;overflow-y:auto;animation:pop .22s ease-out}
+@keyframes pop{from{transform:scale(.96);opacity:0}}
+.sheet .banner{height:12rem;display:flex;align-items:flex-end;padding:1.4rem;position:relative}
+.sheet .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 40%,var(--surface))}
+.sheet .banner h3{font:400 2.6rem/1 var(--head);margin:0;position:relative;z-index:1}
+.close{position:absolute;top:.8rem;right:.8rem;z-index:2;width:2.2rem;height:2.2rem;border-radius:50%;border:0;background:#141414;font-size:1.1rem}
+.sheet .body{padding:1rem 1.4rem 1.6rem}
+.sheet .meta{margin-bottom:.8rem}
+.sheet ul{margin:.6rem 0 1rem;padding-left:1.2rem;color:#d4d4d4}.sheet li{margin-bottom:.4rem}
+.sheet p{margin:0 0 .8rem;color:#d4d4d4}
+.chips span{display:inline-block;margin:0 .35rem .35rem 0;padding:.15rem .7rem;border-radius:99px;background:#2e2e2e;font-size:.82rem;color:var(--muted)}
+/* footer */
+footer{padding:3rem 4% 4rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+footer h2{font:400 2.4rem/1 var(--head);color:var(--ink);margin:0 0 .6rem}
+footer .l{display:flex;gap:.8rem;flex-wrap:wrap;margin:1rem 0 1.5rem}
+footer .l a{padding:.55rem 1.1rem;border:1px solid #555;border-radius:.3rem;color:var(--ink)}footer .l a:hover{background:#fff;color:#000}
+@media (max-width:48rem){.top{gap:1rem}.logo{font-size:1.6rem}.hero{min-height:80vh;padding-top:7rem}.avatar{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <a href="#home" class="logo" aria-label="Home">NIRMAL</a>
+  <nav class="links" aria-label="Sections">
+    <a href="#home">Home</a><a href="#projects">Projects</a><a href="#highlights">Highlights</a>
+    <a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="avatar" aria-hidden="true">N</div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-in">
+    <div class="badge">PORTFOLIO</div>
+    <h1>Nirmal Yaswanth Kandula</h1>
+    <div class="meta"><b>Open to work</b><span>2026</span><span class="box">B.Tech CSE</span><span>Java · Spring Boot · React</span></div>
+    <p>Final-year computer science student who builds clean backend systems and RESTful APIs, and turns them into full-stack products people can use.</p>
+    <div class="btns">
+      <a class="btn play" href="#projects">▶ View projects</a>
+      <button class="btn info" data-open="about">ⓘ More info</button>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="row" id="projects"><h2>Projects</h2><div class="track-wrap"><div class="track" data-row="projects"></div></div></section>
+  <section class="row" id="highlights"><h2>Highlights</h2><div class="track-wrap"><div class="track" data-row="highlights"></div></div></section>
+  <section class="row" id="skills"><h2>Skills</h2><div class="track-wrap"><div class="track" data-row="skills"></div></div></section>
+  <section class="row" id="certs"><h2>Certifications</h2><div class="track-wrap"><div class="track" data-row="certs"></div></div></section>
+  <section class="row" id="education"><h2>Education</h2><div class="track-wrap"><div class="track" data-row="education"></div></div></section>
+</main>
+
+<footer id="contact">
+  <h2>Let’s work together</h2>
+  <div>Ongole, Andhra Pradesh · +91 9441378467</div>
+  <div class="l">
+    <a href="mailto:nirmalyaswanth37@gmail.com">Email me</a>
+    <a href="https://linkedin.com/in/nirmal-yaswanth-kandula" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/Nirmal-Yaswanth" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div>© 2026 Nirmal Yaswanth Kandula</div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="sheet"><div class="banner" id="mb"><button class="close" aria-label="Close">✕</button><h3 id="mt"></h3></div><div class="body" id="mbody"></div></div>
+</div>
+
+<script>
+(function(){
+var D={
+about:{t:'About me',g:0,meta:['Final-year B.Tech','Ongole, Andhra Pradesh'],p:['Final-year B.Tech Computer Science student with strong skills in Java, Spring Boot, and ReactJS, seeking an entry-level software developer role.','Focused on efficient, scalable software with clean code architecture, full-stack development, backend systems, and RESTful API design.']},
+hotel:{t:'Hotel Management System',k:'BACKEND',s:'Java 17 · Spring Boot · MySQL',g:0,ico:'H',meta:['Backend project'],p:['A backend system to manage reservations, customers, and billing.'],b:['Database connectivity with JDBC and CRUD operations on MySQL','Java classes for booking, room availability, and payment handling','Modular, maintainable structure using object-oriented principles'],tags:['Java 17','Spring Boot','Spring Data JPA','MySQL','Maven']},
+apt:{t:'Smart APT',k:'FULL STACK',s:'Apartment management system',g:1,ico:'S',meta:['Full-stack project','Backend lead'],p:['A web-based apartment management system for tenant details, maintenance requests, and apartment listings.'],b:['Led backend development of the rental management system','Built RESTful APIs for authentication, property booking, and contact management','MySQL integration with Spring Data JPA','Data validation and exception handling','Core CRUD operations across 3+ key entities'],tags:['Java 17','Spring Boot','React.js','Tailwind CSS','Google OAuth']},
+intern:{t:'Java Full Stack Intern',k:'EXPERIENCE',s:'42Learn · May – Jun 2024',g:2,ico:'42',meta:['Internship','May 2024 – Jun 2024'],b:['Applied core Java: OOP, exception handling, and collections','Used JDBC for database connectivity and CRUD operations with MySQL','Built backend modules for an employment management system with Servlets and JSP','Implemented real-time use cases with SQL and the DAO pattern'],tags:['Java','JDBC','Servlets','JSP','MySQL']},
+win:{t:'Hackathon Winner',k:'ACHIEVEMENT',s:'42Learn L1 Hackathon',g:4,ico:'1',meta:['Winner'],p:['Won the 42Learn L1 Hackathon, showing skills in coding and team collaboration.']},
+btech:{t:'B.Tech in Computer Science',k:'2022 – 2026',s:'PACE Institute · CGPA 7.98',g:3,ico:'B',meta:['Aug 2022 – May 2026'],p:['PACE Institute of Technology and Sciences, Valluru, Andhra Pradesh. CGPA: 7.98 / 10.']},
+inter:{t:'Intermediate',k:'2020 – 2022',s:'Narayana Junior College · 69.8%',g:1,ico:'I',meta:['Jun 2020 – May 2022'],p:['Narayana Junior College. Percentage: 69.8.']},
+school:{t:'High School',k:'2019 – 2020',s:'Bhashyam High School · 99.1%',g:2,ico:'H',meta:['Jun 2019 – May 2020'],p:['Bhashyam High School. Percentage: 99.1.']}
+};
+var certs=[['Android Developer','Internshala','Virtual internship'],['Data Structures & Algorithms','Coding Ninjas','Course'],['AIML','AWS Academy','Virtual internship'],['Data Engineering','SmartInternz','Virtual internship'],['Java Full Stack','42Learn','Internship']];
+certs.forEach(function(c,i){D['c'+i]={t:c[0],k:'CERTIFIED',s:c[1],g:i%5,ico:c[1][0],meta:[c[1],c[2]],p:[c[0]+' – '+c[2]+' from '+c[1]+'.']}});
+var skills=[['Languages',['Python','Java','SQL']],['Web',['HTML','CSS','JavaScript','ReactJS']],['Backend',['Spring Boot','Eclipse']],['Tools',['Git','GitHub','VS Code','Postman']]];
+var rows={projects:['hotel','apt'],highlights:['intern','win'],certs:['c0','c1','c2','c3','c4'],education:['btech','inter','school']};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+Object.keys(rows).forEach(function(r){
+  var el=document.querySelector('[data-row="'+r+'"]');
+  el.innerHTML=rows[r].map(function(id){var d=D[id];
+    return '<button class="card g'+d.g+(r==='certs'?' tall':'')+'" data-open="'+id+'"><span class="ico">'+esc(d.ico)+'</span><span class="k">'+esc(d.k)+'</span><span class="t">'+esc(d.t)+'</span><span class="s">'+esc(d.s)+'</span></button>'}).join('');
+});
+document.querySelector('[data-row="skills"]').innerHTML=skills.map(function(s){
+  return '<div class="tile"><h3>'+s[0]+'</h3>'+s[1].map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>'}).join('');
+// arrows
+document.querySelectorAll('.track-wrap').forEach(function(w){
+  var t=w.querySelector('.track');
+  [['l','‹',-1],['r','›',1]].forEach(function(a){
+    var b=document.createElement('button');b.className='arrow '+a[0];b.textContent=a[1];b.setAttribute('aria-label',a[0]==='l'?'Scroll left':'Scroll right');
+    b.onclick=function(){t.scrollBy({left:a[2]*t.clientWidth*.8,behavior:'smooth'})};w.appendChild(b);});
+});
+// modal
+var m=document.getElementById('modal'),last;
+function open(id){
+  var d=D[id];last=document.activeElement;
+  document.getElementById('mt').textContent=d.t;
+  var mb=document.getElementById('mb');mb.className='banner g'+d.g;
+  var h='<div class="meta">'+(d.meta||[]).map(function(x,i){return i?'<span>'+esc(x)+'</span>':'<b>'+esc(x)+'</b>'}).join('')+'</div>';
+  (d.p||[]).forEach(function(p){h+='<p>'+esc(p)+'</p>'});
+  if(d.b)h+='<ul>'+d.b.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
+  if(d.tags)h+='<div class="chips">'+d.tags.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div>';
+  document.getElementById('mbody').innerHTML=h;
+  m.classList.add('open');m.querySelector('.close').focus();
+}
+function close(){m.classList.remove('open');if(last)last.focus()}
+document.addEventListener('click',function(e){
+  var o=e.target.closest('[data-open]');if(o){open(o.getAttribute('data-open'));return}
+  if(e.target===m||e.target.closest('.close'))close();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+// nav background on scroll
+var top=document.getElementById('top');
+function sc(){top.classList.toggle('solid',window.scrollY>40)}
+window.addEventListener('scroll',sc,{passive:true});sc();
+})();
+</script>
+</body>
+</html>
